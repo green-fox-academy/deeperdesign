@@ -4,8 +4,8 @@
 //    which logs to the console the input parameters
 //    (can have multiple number of arguments)
 
-function printParams(name: string) {
-  console.log(name);
+function printParams(par1: string= '', par2: string = '') {
+  console.log(par1, par2);
 }
 
-printParams('Tojas, Teszt');
+printParams('Myparamater1','Myparamater2');
