@@ -6,9 +6,9 @@
 let planetList: string[] = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Uranus', 'Neptune'];
 // Expected output: "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn"
 
-function putSaturn(whereTo: any) {
+function putSaturn(whereTo: string[]) {
   whereTo.push('Saturn');
-  console.log(planetList);
+  return planetList.join();
 }
 
 console.log(putSaturn(planetList));
