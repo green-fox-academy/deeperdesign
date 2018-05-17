@@ -10,6 +10,5 @@ const cvwidth: number = 600;
 const cvheight: number = 400;
 
 ctx.fillStyle = 'green';
-ctx.beginPath();
-ctx.arc(cvwidth/2, cvheight/2, 5, 0, Math.PI*2); //it starts at 3 o clock, left,top,height,startfrom, end at context.arc(x, y, radius, startAngle, endAngle);
-ctx.fill();
+ctx.fillStyle = 'red';
+ctx.strokeRect(cvwidth/2-(10/2), cvheight/2-(10/2), 10, 10);
