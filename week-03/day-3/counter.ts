@@ -1,4 +1,7 @@
 'use-strict';
+
+export{};
+
 // Write a recursive function that takes one parameter: n and counts down from n.
 
 function countDown(n: number): number {
@@ -12,4 +15,4 @@ function countDown(n: number): number {
     }
 }
   
-console.log(countDown(50));
+countDown(50);
