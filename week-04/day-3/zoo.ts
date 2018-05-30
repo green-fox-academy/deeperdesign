@@ -1,6 +1,6 @@
 'use-strict';
 
-abstract class Animal {
+export abstract class Animal {
     protected name: string;
     protected age: number;
     protected gender: string;
@@ -81,7 +81,7 @@ class Bird extends Eggers {
     }
 }
 
-let reptile = new Reptile("Crocodile");
+/*let reptile = new Reptile("Crocodile");
 let mammal = new Mammal("Koala");
 let bird = new Bird("Parrot");
 let bird2 = new Bird("DagadtVereb",false);
@@ -93,4 +93,4 @@ console.log("A " + bird.getName() + " is breeding by " + bird.breed());
 
 console.log(bird.canFly());
 console.log(bird2.canFly());
-console.log(mammal.findIt());
+console.log(mammal.findIt());*/
