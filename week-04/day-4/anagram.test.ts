@@ -19,3 +19,8 @@ test('one variable is missing', t => {
   t.equal(anaGram('','Megkéselt erény'),false);
   t.end();
 });
+
+test('no variables given', t => {
+  t.equal(anaGram(),false);
+  t.end();
+});
