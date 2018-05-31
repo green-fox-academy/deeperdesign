@@ -11,7 +11,12 @@ class Sharpie {
     this.inkAmount = 100;
   }
 
-  use() {
+  use():number {
     this.inkAmount--;
+    return this.inkAmount;
   }
 }
+
+let testsharpie1 = new Sharpie('red',30);
+
+console.log(testsharpie1.use());
