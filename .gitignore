@@ -1,3 +1,4 @@
 *.stackdump
 *.pptx
 *.ppt
+node_modules
