@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  display: flex;
+  width: 100%;
+  background-color: yellow;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+.box1 {
+  background-color: purple;
+  width: 100px;
+  height: 100px;
+}
