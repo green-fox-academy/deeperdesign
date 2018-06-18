@@ -2,22 +2,27 @@
   margin: 0px;
   padding: 0px;
 }
+
 .container {
   display: block
 }
+
 .container div {
   display: inline-block;
   height: 100px;
   float: left;
 }
+
 .box1 {
   background-color: green;
   width: 25%;
 }
+
 .box2 {
   background-color: yellow;
   width: 50%;
 }
+
 .box3 {
   background-color: purple;
   width: 25%;

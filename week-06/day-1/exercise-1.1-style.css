@@ -2,18 +2,22 @@
   margin: 0px;
   padding: 0px;
 }
+
 .container div {
   width: 100px;
   height: 100px;
   display: inline-block;
   float: left;
 }
+
 .box1 {
   background-color: green;
 }
+
 .box2 {
   background-color: yellow;
 }
+
 .box3 {
   background-color: purple;
 }

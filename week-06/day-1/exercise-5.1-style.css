@@ -2,12 +2,14 @@
   margin: 0px;
   padding: 0px;
 }
+
 .header {
   background-color: cyan;
   width: 800px;
   margin: 0 auto;
   height: 40px;
 }
+
 .content {
   display: flex;
   width: 800px;
@@ -15,6 +17,7 @@
   height: calc(100vh - 80px);
   flex-wrap: nowrap
 }
+
 .maincontent {
   background-color: red;
   flex-basis: 70%;
@@ -22,21 +25,26 @@
   margin: 0 10px;
   position: relative;
 }
+
 .sidebar-1, .sidebar-2 {
   flex-basis: 15%;
 }
+
 .sidebar-1 {
   background-color: orange;
   order: 1;
 }
+
 .sidebar-2 {
   background-color: purple;
   order: 3;
 }
+
 .layout {
   width: 800px;
   margin: 0 auto;
 }
+
 .blackbox {
   position: absolute;
   right: 10px;
@@ -45,6 +53,7 @@
   height: 50px;
   background-color: #000;
 }
+
 footer {
   display: flex;
   flex-wrap: wrap;
