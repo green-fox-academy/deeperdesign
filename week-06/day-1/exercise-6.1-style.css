@@ -1,0 +1,107 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.header {
+  background-color: purple;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.header div {
+}
+.navitem1, .navitem2, .navitem3, .navitem4, .navitem5 {
+  background-color: cyan;
+  margin-right: 10px;
+}
+.navitem1, .navitem2, .navitem3 {
+  width: 90px;
+  height: 20px;
+}
+.navitem4, .navitem5 {
+  width: 20px;
+  height: 20px;
+}
+.navitem5 {
+  margin-right: 0px;
+}
+
+.content {
+  display: flex;
+  margin: 0 auto;
+  min-height: calc(100vh - 80px);
+  flex-wrap: nowrap
+}
+.maincontent {
+  background-color: yellow;
+  flex: 1;
+  position: relative;
+  padding: 20px 10px;
+}
+.sidebar-1 {
+  background-color: green;
+  flex-basis: 200px;
+  padding: 20px 10px;
+}
+.header .text-links {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+.header .contact {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.blackbox {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+}
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  height: 40px;
+  background-color: blue;
+}
+.boxcontainer ul {
+  list-style: none;
+  display: flex;
+  margin: 10px 0;
+}
+.boxcontainer ul li {
+  background-color: red;
+  flex-basis: 25%;
+  height: 30px;
+  margin: 0 5px 5px 0;
+}
+.col2 {
+  display: flex;
+  flex-wrap: nowrap
+}
+.half {
+  flex-basis: 50%;
+  margin-right: 10px;
+}
+.sidebar-1 ul {
+  list-style: none;
+}
+.sidebar-1 ul li {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  height: 30px;
+  background-color: blueviolet;
+  margin-bottom: 15px;
+}
+.sidebar-1  p {
+  margin-bottom: 10px;
+}
