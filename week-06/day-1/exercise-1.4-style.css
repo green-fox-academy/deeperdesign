@@ -1,0 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+.container div {
+  height: 100px;
+  flex-basis: 100%;
+}
+.box1 {
+  background-color: green;
+  order: 1;
+}
+.box2 {
+  background-color: yellow;
+  order: 3;
+}
+.container div.box2 {
+  height: 200px;
+}
+.box3 {
+  background-color: purple;
+  order: 2;
+}
