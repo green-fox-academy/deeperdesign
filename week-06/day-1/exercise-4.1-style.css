@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.header {
+  background-color: purple;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.header .navigationlink {
+  background-color: cyan;
+  width: 100px;
+  height: 20px;
+  margin-right: 10px;
+}
+.content {
+  display: flex;
+  height: calc(100vh - 40px);
+  flex-wrap: wrap;
+}
+.maincontent {
+  background-color: yellow;
+  flex-basis: 70%;
+}
+.sidebar {
+  background-color: green;
+  flex-basis: 30%;
+}
+.layout {
+  width: 800px;
+  margin: 0 auto;
+}
