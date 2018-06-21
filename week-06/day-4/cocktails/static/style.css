@@ -1,0 +1,56 @@
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+th, td {
+  padding: 10px;
+}
+
+.cocname, .price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nokoholic {
+  font-weight: normal;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.cocingr {
+  font-size: 14px;
+}
+
+.price::after {
+  content: 'Ft';
+  display: inline-block;
+  margin-left: 10px;
+}
+
+th:first-child, td:first-child {
+  border-right: 1px solid #fff;
+}
+
+tbody tr {
+  background-color: #ccc;
+}
+
+tbody tr:nth-child(2n+2) {
+  background-color: #fff;
+}
+
+nav {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+}

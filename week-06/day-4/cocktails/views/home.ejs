@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <% if(cocktails[0]) {%>
+    <nav>
+        <a href="./">All</a>
+        <% for(let i = 0; i < alcoholList.length; i++){ %>
+                <a href="/?alcohol=<%= alcoholList[i] %>"><%= alcoholList[i] %></a>
+
+          <% }%>      
+    </nav>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1">Name</th>
+          <th colspan="1">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < filteredDrinks.length; i++){ %>
+          <tr>
+            <td>
+              <div class="cocname">
+                <%= filteredDrinks[i].name %>
+                  <% if(!filteredDrinks[i].isAlcoholic) {%><div class="nokoholic">(non-alcoholic)</div>
+                    <%}%>
+              </div>
+              <div class="cocingr">
+                <%= filteredDrinks[i].contains %>
+              </div>
+            </td>
+            <td>
+              <div class="price">
+                <%= filteredDrinks[i].price %>
+              </div>
+            </td>
+          </tr>
+          <% }%>
+      </tbody>
+    </table>
+    <%} else{%>
+      <p>There are no coctails</p>
+      <%} %>
+</body>
+
+</html>
