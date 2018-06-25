@@ -1,0 +1,131 @@
+body {
+  background: rgb(170,170,170);
+  background: -moz-linear-gradient(left, rgba(170,170,170,1) 0%, rgba(226,226,226,1) 15%, rgba(242,241,241,1) 40%, rgba(242,241,241,1) 60%, rgba(226,226,226,1) 85%, rgba(170,170,170,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(170,170,170,1) 0%,rgba(226,226,226,1) 15%,rgba(242,241,241,1) 40%,rgba(242,241,241,1) 60%,rgba(226,226,226,1) 85%,rgba(170,170,170,1) 100%);
+  background: linear-gradient(to right, rgba(170,170,170,1) 0%,rgba(226,226,226,1) 15%,rgba(242,241,241,1) 40%,rgba(242,241,241,1) 60%,rgba(226,226,226,1) 85%,rgba(170,170,170,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#aaaaaa',GradientType=1 );
+  margin: 0;
+  padding: 0;
+}
+
+.gallery {
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  display: block;
+  width: 100%;
+}
+
+.fullimage {
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 3px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.fullimage .prev, .fullimage .next {
+  flex-basis: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-color: #fafafa;
+}
+.fullimage .prev:hover, .fullimage .next:hover {
+  opacity: 0.6;
+}
+
+.fullimage .image {
+  flex-basis: calc(100% - 120px);
+  height: 400px;
+}
+
+.fullimage .prev {
+  background-image: url(arrow.svg);
+}
+
+.fullimage .next {
+  background-image: url(arrow.svg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+nav {
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav ul {
+  list-style: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-start: 0;
+}
+
+nav li {
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  margin: 10px 5px 0 5px;
+  background-color: #fafafa;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0 5px 15px -3px #000;
+  cursor: pointer;
+}
+nav li:hover {
+  box-shadow: 0 5px 15px 3px #000;
+}
+
+nav li.current {
+
+}
+
+nav li .description {
+  display: none;
+}
+
+nav .thumb {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+nav img {
+  width: auto;
+  height: 100%;
+}
+
+.thumb .title {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  background-color: #000;
+  color: #fff;
+  display: none;
+  padding: 5px;
+  opacity: 0.95;
+  border-radius: 3px;
+  left: 0;
+}
+
+.thumb:hover .title {
+  display: block;
+}
+.thumb:hover .title::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 7.5px 0 7.5px;
+  border-color: #000000 transparent transparent transparent;
+  position: absolute;
+  bottom: -5px;
+  left: calc(50% - 8px);
+}
