@@ -10,12 +10,12 @@ const h1 = document.querySelector('h1');
 let xmlResponse = [];
 
 window.onload = function () {
-  if (window.location.href === host + '/api/books' | window.location.href === host + '/api/books/') {
+  if (window.location.href === host + '/books' | window.location.href === host + '/books/') {
     metaTitle.textContent = 'Books';
     h1.textContent = 'Books';
 
-    //get data
-    http.open('GET', 'http://localhost:3000/api/books/?getdata=books', true);
+    //get data books
+    http.open('GET', 'http://localhost:3000/api/books/', true);
     http.onload = () => {
       xmlResponse.push(JSON.parse(http.responseText).books);
       for (let i = 0; i < xmlResponse[0].length; i++) {
@@ -25,6 +25,18 @@ window.onload = function () {
       }
     }
     http.send();
-
   }
+  if (window.location.href === host + '/api/fulldata' | window.location.href === host + '/api/fulldata/') {
+    metaTitle.textContent = 'Books detailed';
+    h1.textContent = 'Books detailed';
+
+    //get data books
+    http.open('GET', 'http://localhost:3000/api/fulldata/?getdata=books', true);
+    http.onload = () => {
+      xmlResponse.push(JSON.parse(http.responseText).booksdetailed);
+
+    }
+    http.send();
+  }
+
 }

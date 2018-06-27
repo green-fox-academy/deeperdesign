@@ -20,26 +20,46 @@ const conn = mysql.createConnection({
 
 //api endpoint
 app.get('/api/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+//Books api endpoint
+app.get('/api/books', (req, res) => {
+  let sql = 'SELECT book_name FROM book_mast;';
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      console.log('err');
+      res.status(500).send();
+      return;
+    }
+    res.json({
+      books: rows,
+    });
+  });
+});
+
+//Books api endpoint
+app.get('/books', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
-//Books endpoint
-app.get('/api/books', (req, res) => {
-  if (req.query.getdata == 'books') {
-    let sql = 'SELECT book_name FROM `bookstore`.`book_mast`;';
-    conn.query(sql, (err, rows) => {
-      if (err) {
-        console.log('err');
-        res.status(500).send();
-        return;
-      }
-      res.json({
-        books: rows,
-      });
+
+//Books fulldata
+app.get('/api/fulldata', (req, res) => {
+  let sql =
+  `SELECT book_mast.book_name, author.aut_name, category.cate_descrip, publisher.pub_name, purchase.purch_price
+  FROM book_mast, author, category, publisher, purchase
+  WHERE book_mast.aut_id = author.aut_id AND book_mast.cate_id = category.cate_id AND publisher.pub_id = book_mast.pub_id AND purchase.cate_id = category.cate_id;`;
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      console.log('err');
+      res.status(500).send();
+      return;
+    }
+    res.json({
+      booksdetailed: rows,
     });
-  } else {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  }
+  });
 });
 
 //required for server
