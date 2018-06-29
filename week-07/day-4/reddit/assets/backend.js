@@ -21,14 +21,14 @@ const conn = mysql.createConnection({
 
 //retrieve posts
 app.get('/api/posts', (req, res) => {
-  let sql = 'SELECT * FROM posts;';
+  let sql = 'SELECT * FROM posts ORDER BY score DESC;';
   conn.query(sql, (err, rows) => {
     if (err) {
       console.log('err');
       res.status(500).send();
       return;
     }
-    res.json(200, {
+    res.status(200).json({
       posts: rows,
     });
   });
@@ -52,7 +52,7 @@ app.post('/api/posts', (req, res) => {
       res.status(500).send();
       return;
     }
-    res.json(200, {
+    res.status(200).json({
       posts: rows,
     });
   });
@@ -76,7 +76,7 @@ app.put('/api/posts/:id/upvote', (req, res) => {
           res.status(500).send();
           return;
         }
-        res.json(200, {
+        res.status(200).json({
           rows,
         });
       });
@@ -102,7 +102,7 @@ app.put('/api/posts/:id/downvote', (req, res) => {
           res.status(500).send();
           return;
         }
-        res.json(200, {
+        res.status(200).json({
           rows,
         });
       });
@@ -122,7 +122,7 @@ app.delete('/api/posts/:id', (req, res) => {
       res.status(500).send();
       return;
     } else {
-      res.json(200, {
+      res.status(200).json({
         rows,
       });
       conn.query(sql, (err, rows) => {
@@ -166,7 +166,7 @@ app.put('/api/posts/:id', (req, res) => {
           res.status(500).send();
           return;
         }
-        res.json(200, {
+        res.status(200).json({
           rows,
         });
       });
