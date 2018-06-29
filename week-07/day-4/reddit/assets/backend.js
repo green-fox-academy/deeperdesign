@@ -144,13 +144,13 @@ app.put('/api/posts/:id', (req, res) => {
   let sql;
 
   if (req.body.title && req.body.url) { //update title and url
-    sql = `UPDATE reddit.posts SET title = ?, url = ?, timestamp = CURRENT_TIMESTAMP WHERE (id = ${postid});`;
+    sql = `UPDATE reddit.posts SET title = ?, url = ?, last_modified = CURRENT_TIMESTAMP WHERE (id = ${postid});`;
     queryParams = [req.body.title, req.body.url];
   } else if (req.body.title && !req.body.url) { //update only the title
-    sql = `UPDATE reddit.posts SET title = ?, timestamp = CURRENT_TIMESTAMP WHERE (id = ${postid});`;
+    sql = `UPDATE reddit.posts SET title = ?, last_modified = CURRENT_TIMESTAMP WHERE (id = ${postid});`;
     queryParams = [req.body.title];
   } else if (!req.body.title && req.body.url) { //update only the url
-    sql = `UPDATE reddit.posts SET url = ?, timestamp = CURRENT_TIMESTAMP WHERE (id = ${postid});`;
+    sql = `UPDATE reddit.posts SET url = ?, last_modified = CURRENT_TIMESTAMP WHERE (id = ${postid});`;
     queryParams = [req.body.url];
   }
 
