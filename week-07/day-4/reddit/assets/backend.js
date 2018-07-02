@@ -17,7 +17,7 @@ const conn = mysql.createConnection({
   user: process.env.DB_user,
   password: process.env.DB_password,
   database: process.env.DB_database,
-})
+});
 
 //retrieve posts
 app.get('/api/posts', (req, res) => {
