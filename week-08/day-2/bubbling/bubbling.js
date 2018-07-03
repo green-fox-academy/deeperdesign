@@ -10,17 +10,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
 nav.addEventListener('click', function (e) {
   if (e.target.dataset.action === 'move') {
     let imgStyle = window.getComputedStyle(image);
+    let imgBoxheight = parseInt(imgStyle.height);
     let currentpositionX = parseInt(imgStyle.backgroundPositionX);
     let currentpositionY = parseInt(imgStyle.backgroundPositionY);
 
     if (e.target.dataset.direction === 'up') {
-      console.log('moveup');
-      image.style.backgroundPositionY = `${currentpositionY - 10}px`;
+      console.log(currentpositionY);
+      currentpositionY = Math.min(0, currentpositionY - 10);
+      if(currentpositionY <= -imgBoxheight){
+        currentpositionY = -imgBoxheight;
+      }
+      image.style.backgroundPositionY = `${currentpositionY}px`;
     }
 
     if (e.target.dataset.direction === 'down') {
       console.log('movedown');
-      image.style.backgroundPositionY = `${currentpositionY + 10}px`;
+      currentpositionY = Math.min(0, currentpositionY + 10);
+      image.style.backgroundPositionY = `${currentpositionY}px`;
     }
 
     if (e.target.dataset.direction === 'left') {
