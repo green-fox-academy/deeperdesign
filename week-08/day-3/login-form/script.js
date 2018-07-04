@@ -1,3 +1,5 @@
+'use strict';
+
 const pwfield = document.querySelectorAll('input[type="password"]');
 const pwdiv = document.querySelector('.pw');
 const reveal = document.querySelector('.reveal');
