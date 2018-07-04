@@ -1,0 +1,3 @@
+select[name="title"] option.hide {
+  display: none;
+}
