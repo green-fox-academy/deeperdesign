@@ -24,12 +24,13 @@ body {
   background-position: bottom;
 }
 
-.header .title {
+.header .title h1 {
   text-transform: uppercase;
   color: #eef5ff;
   font-size: 30px;
   letter-spacing: 80px;
   font-weight: 700;
+  margin: 0px;
 }
 
 .mainbody {
@@ -141,6 +142,9 @@ body {
   margin: 10px 0;
   color: #555;
 }
+.created .dateelapsed {
+  display: inline-block;
+}
 .created .datecreated {
   display: none;
 }
@@ -148,5 +152,14 @@ body {
   display: none;
 }
 .created:hover .datecreated {
-  display: initial;
+  display: inline-block;
+}
+.created .owner {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 700;
+}
+.postcontent .posttitle {
+  font-size: 25px;
+  font-weight: 700;
 }

@@ -15,6 +15,8 @@ function listposts() {
     const response = JSON.parse(http.responseText);
     response.posts.forEach((element) => {
 
+      console.log(element);
+
       let timestamp = new Date(element.created);
       let timestampElapsed = dateDiff(timestamp.getTime());
 
@@ -26,9 +28,10 @@ function listposts() {
       const created = document.createElement('div');
       const dateelapsed = document.createElement('div');
       const datecreated = document.createElement('div');
+      const owner = document.createElement('div');
 
       const postcontent = document.createElement('div');
-      const postTitle = document.createElement('div');
+      const postTitle = document.createElement('h2');
       const imagecontainer = document.createElement('div');
       const image = document.createElement('img');
 
@@ -41,6 +44,7 @@ function listposts() {
       created.classList.add('created');
       dateelapsed.classList.add('dateelapsed');
       datecreated.classList.add('datecreated');
+      owner.classList.add('owner');
 
       post.classList.add('post');
       post.classList.add(`id${element.id}`);
@@ -56,8 +60,9 @@ function listposts() {
       postcontent.appendChild(imagecontainer).classList.add('imgcont');
       imagecontainer.appendChild(image).setAttribute('src', `${element.url}`)
       postcontent.appendChild(created);
-      created.appendChild(datecreated).textContent = `Created: ${timestamp.toLocaleDateString()} - ${timestamp.toLocaleTimeString()}`;
-      created.appendChild(dateelapsed).textContent = `Created: ${timestampElapsed}`;
+      created.appendChild(datecreated).textContent = `submitted: ${timestamp.toLocaleDateString()} - ${timestamp.toLocaleTimeString()}`;
+      created.appendChild(dateelapsed).textContent = `submitted: ${timestampElapsed}`;
+      created.appendChild(owner).textContent = `by: ${element.owner}`;
 
     });
   }
