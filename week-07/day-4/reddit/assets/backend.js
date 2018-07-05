@@ -7,8 +7,12 @@ const app = express();
 const path = require('path');
 
 app.use(express.json());
+
 //assets folder
 app.use('/assets', express.static('assets'));
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
 //MySQL connection
 const mysql = require('mysql');
@@ -171,6 +175,15 @@ app.put('/api/posts/:id', (req, res) => {
         });
       });
     }
+  });
+});
+
+// home page
+app.get('/', (req, res) => {
+
+  // render `home.ejs`
+  res.render('home', {
+    
   });
 });
 
