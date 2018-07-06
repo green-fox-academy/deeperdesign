@@ -8,7 +8,7 @@ const newsfeed = document.querySelector('.newsfeed');
 
 function listposts() {
 
-  newsfeed.innerHTML = '';
+  newsfeed.innerHTML = '';   //flush newsfeed
 
   http.open('GET', `${host}/api/posts`, true);
   http.onload = () => {
@@ -18,22 +18,28 @@ function listposts() {
       console.log(element);
 
       let timestamp = new Date(element.created);
-      let timestampElapsed = dateDiff(timestamp.getTime());
+      let modified = new Date(element.last_modified);
 
-      const post = document.createElement('div');
-      const scorecont = document.createElement('div');
-      const upvote = document.createElement('div');
-      const downvote = document.createElement('div');
-      const score = document.createElement('div');
-      const created = document.createElement('div');
-      const dateelapsed = document.createElement('div');
-      const datecreated = document.createElement('div');
-      const owner = document.createElement('div');
+      let timestampElapsed = dateDiff(timestamp.getTime());
 
       const postcontent = document.createElement('div');
       const postTitle = document.createElement('h2');
       const imagecontainer = document.createElement('div');
       const image = document.createElement('img');
+      const post = document.createElement('div');
+      const scorecont = document.createElement('div');
+      const upvote = document.createElement('div');
+      const downvote = document.createElement('div');
+      const score = document.createElement('div');
+      const postdetails = document.createElement('div');
+      const created = document.createElement('div');
+      const dateelapsed = document.createElement('div');
+      const datecreated = document.createElement('div');
+      const owner = document.createElement('div');
+      const modifypost = document.createElement('div');
+      const editpost = document.createElement('div');
+      const deletepost = document.createElement('div');
+
 
       scorecont.classList.add('scorecont');
       upvote.classList.add('upvote');
@@ -41,13 +47,19 @@ function listposts() {
       score.classList.add('score');
       postcontent.classList.add('postcontent');
       postTitle.classList.add('posttitle');
+      postdetails.classList.add('postdetails');
       created.classList.add('created');
       dateelapsed.classList.add('dateelapsed');
       datecreated.classList.add('datecreated');
       owner.classList.add('owner');
+      modifypost.classList.add('modifypost');
+      editpost.classList.add('editpost');
+      deletepost.classList.add('deletepost');
 
       post.classList.add('post');
-      post.classList.add(`id${element.id}`);
+      post.setAttribute('data-postid', `${element.id}`);
+      deletepost.setAttribute('data-postid', `${element.id}`);
+      editpost.setAttribute('data-postid', `${element.id}`);
 
       newsfeed.appendChild(post);
       post.appendChild(scorecont);
@@ -59,10 +71,21 @@ function listposts() {
       postcontent.appendChild(postTitle).textContent = element.title;
       postcontent.appendChild(imagecontainer).classList.add('imgcont');
       imagecontainer.appendChild(image).setAttribute('src', `${element.url}`)
-      postcontent.appendChild(created);
+      postcontent.appendChild(postdetails);
+      postdetails.appendChild(created);
       created.appendChild(datecreated).textContent = `submitted: ${timestamp.toLocaleDateString()} - ${timestamp.toLocaleTimeString()}`;
       created.appendChild(dateelapsed).textContent = `submitted: ${timestampElapsed}`;
       created.appendChild(owner).textContent = `by: ${element.owner}`;
+      postdetails.appendChild(modifypost);
+      modifypost.appendChild(editpost);
+      modifypost.appendChild(deletepost);
+
+      clickclass(created);
+      if (modified > timestamp) {
+        const modifiedDiv = document.createElement('div');
+        modifiedDiv.classList.add('modified');
+        created.appendChild(modifiedDiv).textContent = `modified: ${modified.toLocaleDateString()} - ${modified.toLocaleTimeString()}`;
+      }
 
     });
   }
@@ -110,5 +133,28 @@ function dateDiff(timestamp) {
     return `${r.minute} minutes ago`;
   }
 };
+
+function clickclass(item) {
+  item.addEventListener('click', function() {
+    this.classList.toggle('click');
+  })
+};
+
+function scrolllistener() {
+  const sidebar = document.querySelector('.sidebar');
+
+  const sidebaroffset = sidebar.offsetTop;
+
+  window.addEventListener('scroll', function() {
+    if(window.scrollY > sidebaroffset -20){
+      sidebar.classList.add('fix');
+    } else {
+      sidebar.classList.remove('fix');
+    }
+  });
+
+}
+
+scrolllistener();
 
 listposts();

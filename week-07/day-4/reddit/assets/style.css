@@ -60,12 +60,20 @@ body {
   width: 820px;
   margin-right: 10px;
   min-height: 10px;
-  overflow: hidden;
 }
 
 .sidebar {
   flex: 1;
   overflow: hidden;
+  position: relative;
+}
+
+.sidebar.fix {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background-color: #eeeeee;
+  box-shadow: 0px 0px 5px #000;
 }
 
 .sidebar .infoblock {
@@ -89,12 +97,12 @@ body {
 }
 
 .post {
-  overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
   padding: 10px;
   background-color: #fff;
   margin-bottom: 5px;
+  position: relative;
 }
 
 .post .imgcont img {
@@ -112,6 +120,33 @@ body {
   flex: 1;
 }
 
+.scorecont .upvote::after, .scorecont .downvote::after {
+  display: none;
+  white-space: nowrap;
+  position: absolute;
+  top: -30px;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 3px 5px;
+  border: 1px solid #c6c6c6;
+  font-size: 12px;
+}
+
+.scorecont .upvote::after {
+  content: 'Upvote';
+  right -10px;
+}
+
+.scorecont .downvote::after {
+  content: 'Downvote';
+  transform: rotate(180deg);
+  right: -10px;
+}
+
+.scorecont .upvote:hover::after, .scorecont .downvote:hover::after {
+  display: block;
+}
+
 .scorecont .upvote, .scorecont .downvote {
   background-repeat: no-repeat;
   height: 35px;
@@ -121,6 +156,7 @@ body {
   margin-right: auto;
   opacity: 0.5;
   cursor: pointer;
+  position: relative;
 }
 
 .scorecont .upvote:hover, .scorecont .downvote:hover {
@@ -142,24 +178,103 @@ body {
   margin: 10px 0;
   color: #555;
 }
+
+.postdetails {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 5px;
+}
+
+.created {
+  font-size: 14px;
+  color: #555;
+  flex: 1;
+}
+
+.created .modified {
+  display: block;
+}
+
 .created .dateelapsed {
   display: inline-block;
+  cursor: help;
 }
+
 .created .datecreated {
   display: none;
+  cursor: help;
 }
-.created:hover .dateelapsed {
-  display: none;
-}
-.created:hover .datecreated {
+
+.created.click .datecreated {
   display: inline-block;
 }
+
+.created.click .dateelapsed {
+  display: none;
+}
+
 .created .owner {
   display: inline-block;
   margin-left: 10px;
   font-weight: 700;
 }
+
 .postcontent .posttitle {
   font-size: 25px;
   font-weight: 700;
+}
+
+.modifypost {
+  width: 70px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.modifypost .editpost, .modifypost .deletepost {
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-position: center;
+  cursor: pointer;
+  opacity: 0.7;
+  position: relative;
+}
+
+.modifypost .editpost:hover, .modifypost .deletepost:hover {
+  opacity: 1;
+}
+
+.modifypost .editpost::after, .modifypost .deletepost::after {
+  display: none;
+  white-space: nowrap;
+  position: absolute;
+  top: -30px;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 3px 5px;
+  border: 1px solid #c6c6c6;
+  font-size: 12px;
+  left: 0;
+}
+
+.modifypost .editpost::after {
+  content: 'Edit post';
+}
+
+.modifypost .deletepost::after {
+  content: 'Delete post';
+}
+
+.modifypost .editpost:hover::after, .modifypost .deletepost:hover::after {
+  display: block;
+}
+
+.modifypost .editpost {
+  background-image: url(/assets/images/svg/edit.svg);
+}
+
+.modifypost .deletepost {
+  background-image: url(/assets/images/svg/trash.svg);
 }
