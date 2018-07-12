@@ -1,0 +1,14 @@
+.answer.right {
+ background-color: green;
+ color: #fff; 
+}
+.answer.wrong {
+  background-color: blue;
+  color: #fff;
+}
+tbody td {
+  cursor: pointer;
+}
+h2 div {
+  display: inline-block;
+}
