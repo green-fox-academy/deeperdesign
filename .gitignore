@@ -1,6 +1,7 @@
 *.stackdump
 *.pptx
 *.ppt
+*.pdf
 node_modules
 week-04/day-2/garden-app.ts
 week-03/day-2/domino.ts
